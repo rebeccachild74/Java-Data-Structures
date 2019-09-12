@@ -95,4 +95,61 @@ public class LinkedList<T extends Comparable<T>> implements List<T>{
 		return this.sizeOfList;
 	}
 
+	// In place algorithm to find the middle node of a LinkedList
+	@Override
+	public void findMiddle() {
+		
+		// flag for if there are 2 center nodes or not
+		boolean flag = false;
+		
+		if(this.sizeOfList % 2 == 0) {
+			flag = true;
+		}
+		Node<T> currentNode = this.head;
+		Node<T> prevNode = this.head;
+		
+		for(int i = 0; i <= this.sizeOfList / 2; i++) {
+			if(i == this.sizeOfList/2) {
+				if(flag == false) {
+					System.out.print(currentNode.getData());
+				}
+				else {
+					System.out.print(prevNode.getData() + ", " + currentNode.getData());
+				}
+			}
+			prevNode = currentNode;
+			currentNode = currentNode.getNextNode();
+		}
+	}
+
+	@Override
+	public Node<T> getMiddleNode() {
+		
+		Node<T> fastptr = this.head;
+		Node<T> slowptr = this.head;
+		
+		while(fastptr.getNextNode() != null && fastptr.getNextNode().getNextNode() != null) {
+			fastptr = fastptr.getNextNode().getNextNode();
+			slowptr = slowptr.getNextNode();
+		}
+		return slowptr;
+	}
+
+	@Override
+	public void reverse() {
+	
+		Node<T> currNode = this.head;
+		Node<T> prevNode = null;
+		Node<T> nextNode = null;
+		
+		while(currNode != null) {
+			nextNode = currNode.getNextNode();
+			// kind of reversing the references
+			currNode.setNextNode(prevNode);
+			prevNode = currNode;
+			currNode = nextNode;
+		}
+		// Reset the head to the opposite end
+		this.head = prevNode;
+	}
 }

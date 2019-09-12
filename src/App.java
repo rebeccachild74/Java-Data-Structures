@@ -1,3 +1,4 @@
+//import java.util.List;
 
 public class App {
 
@@ -10,13 +11,13 @@ public class App {
 		intList.insert(3);
 		intList.insert(100);
 		
-		intList.remove(10);
+		//intList.remove(10);
 		
-		System.out.println(intList.size());
+		//System.out.println(intList.size());
 		
-		intList.traverseList();
+		//intList.traverseList();
 		
-		System.out.println();
+		//System.out.println();
 		
 		List<Person> personList = new LinkedList<Person>();
 		
@@ -26,8 +27,43 @@ public class App {
 		personList.insert(new Person(1, "Tommy"));
 		personList.insert(new Person(43, "Marie"));
 		personList.insert(new Person(23, "Sam"));
+		personList.insert(new Person(14, "Rebecca"));
+		
+		//personList.traverseList();
+		
+		// Built in linked lists
+//		List<Integer> list = new java.util.LinkedList<>();
+//		
+//		list.add(3);
+//		list.add(10);
+//		list.add(20);
+//		
+//		// 0 is the index
+//		list.remove(0);
+		
+//		System.out.println(list.get(1)); // Not very fast
+//		
+//		System.out.println(list.size());
+//		
+//		for(Integer i : list) {
+//			System.out.print(i + " ");
+//		}
+//		intList.traverseList();
+//		System.out.println();
+//		intList.findMiddle();
+//		System.out.println();
 		
 		personList.traverseList();
+		System.out.println();
+//		personList.findMiddle();
+//		System.out.println();
+//		
+//		// betterMethod
+//		System.out.println(intList.getMiddleNode().getData());
+//		System.out.println(personList.getMiddleNode().getData());
+
+		personList.reverse();
 		
+		personList.traverseList();
 	}
 }
